@@ -23,24 +23,7 @@ export default class Scape extends Component {
       end_date: ''    };
   }
 
-getURL = () => {
-  //https://api.worldtradingdata.com/api/v1/history?symbol=AAPL&api_token=EDP0CVswPgdwU2XzgIfVhkhhMSB9wtvUuSa5zth0aIbIE856xVdrVyoqB1mz
-  return (
-    "https://api.worldtradingdata.com/api/v1/history?symbol=" + this.state.stock_name + "&api_token=EDP0CVswPgdwU2XzgIfVhkhhMSB9wtvUuSa5zth0aIbIE856xVdrVyoqB1mz"
-  )
-}
 
-  callAPI() {
-    fetch(this.getURL())
-      .then(response => response.json())
-      .then((responseData) => {
-        this.setState({ stock_name: responseData.name,
-          history: responseData.history
-        });
-      })
-      .catch(error => this.setState({ error }));
-      console.log(this.state.stock_name)
-    }
 
   // I need to get the selected start and end dates close price
 
@@ -99,3 +82,26 @@ getURL = () => {
 //   }
 // };
 
+
+// Copy and paste me after line 25, but I need to move this
+// API fetch into actions and have to add Redux so trying that out 
+// SHRUG
+
+// getURL = () => {
+//   //https://api.worldtradingdata.com/api/v1/history?symbol=AAPL&api_token=EDP0CVswPgdwU2XzgIfVhkhhMSB9wtvUuSa5zth0aIbIE856xVdrVyoqB1mz
+//   return (
+//     "https://api.worldtradingdata.com/api/v1/history?symbol=" + this.state.stock_name + "&api_token=EDP0CVswPgdwU2XzgIfVhkhhMSB9wtvUuSa5zth0aIbIE856xVdrVyoqB1mz"
+//   )
+// }
+
+//   callAPI() {
+//     fetch(this.getURL())
+//       .then(response => response.json())
+//       .then((responseData) => {
+//         this.setState({ stock_name: responseData.name,
+//           history: responseData.history
+//         });
+//       })
+//       .catch(error => this.setState({ error }));
+//       console.log(this.state.stock_name)
+//     }

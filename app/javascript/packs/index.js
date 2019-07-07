@@ -8,18 +8,24 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 //import './index.css';
 import App from '../components/App';
-//import { createStore, applyMiddleware } from 'redux'
-//import { Provider } from 'react-redux'
-//import thunk from 'redux-thunk';
-//import scapeFormReducer from './scapeFormReducer';
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk';
+import scapesReducer from './ScapeReducer';
 //import 'bootstrap/dist/css/bootstrap.css';
 //import 'bootstrap/dist/css/bootstrap-theme.css';
-//import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 
 //const store = createStore(
 //    scapeFormReducer,
 //    applyMiddleware(thunk)
 //)
+
+const rootReducer = combineReducers({
+    scapes: scapesReducer
+})
+
+const store = createStore(rootReducer, applyMiddleware(thunk))
+
 
 ReactDOM.render(
     <Router>
@@ -30,6 +36,7 @@ ReactDOM.render(
 //    document.getElementById('root')
 );
 
+export default rootReducer 
 
 
 

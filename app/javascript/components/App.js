@@ -1,9 +1,12 @@
 
 
 import React, { Component } from 'react';
+import {Navbar} from 'react-bootstrap'
 //import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-//import { connect } from 'react-redux'
+import { connect } from 'react-redux'
+import fetchScapes from './actions/scapeActions'
+
 import Navbar from './Navbar';
 import Home from './Home';
 import About from './About';
@@ -14,6 +17,21 @@ import ScapeShow from '../containers/ScapeShow';
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      loading: false, 
+      scapes: []
+    }
+  }
+
+  callAPI() {
+    this.props.fetchScapes()
+  }
+
+// I am here, lets move down
+
   render() {
     return (
       <div className="App">
@@ -35,4 +53,19 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+
+//? ?    see_the_scape: state.stock_name
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchScapes: () => {
+      dispatch(fetchScapes())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (App)

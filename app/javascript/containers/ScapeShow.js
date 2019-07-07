@@ -6,7 +6,7 @@ import React from 'react';
 import Scape from "./ScapeForm";
 
 const ScapeContainer = state => {
-    const see_the_scape = this.state;
+    const see_the_scape = this.state.stock_name;
 
     return (
         <div>
