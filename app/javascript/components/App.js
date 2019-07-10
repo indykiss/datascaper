@@ -1,11 +1,10 @@
 
 
 import React, { Component } from 'react';
-import {Navbar} from 'react-bootstrap'
 //import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
-import fetchScapes from './actions/scapeActions'
+import fetchScapes from '../actions/scapeActions'
 
 import Navbar from './Navbar';
 import Home from './Home';

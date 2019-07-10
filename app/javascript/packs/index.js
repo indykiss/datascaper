@@ -10,8 +10,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import App from '../components/App';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import thunk from 'redux-thunk';
-import scapesReducer from './ScapeReducer';
+import thunk from 'redux-thunk'
+import scapesReducer from '../reducers/ScapeReducer';
 //import 'bootstrap/dist/css/bootstrap.css';
 //import 'bootstrap/dist/css/bootstrap-theme.css';
 
@@ -24,8 +24,10 @@ const rootReducer = combineReducers({
     scapes: scapesReducer
 })
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
-
+const store = createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  )
 
 ReactDOM.render(
     <Router>

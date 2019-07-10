@@ -13,13 +13,13 @@ export default function fetchScapes() {
       return fetch(this.getURL())
         .then(response => response.json())
         .then((responseData) => {
-          this.setState({ stock_name: responseData.name,
-            history: responseData.history
-          });
-        }
+        //   this.setState({ stock_name: responseData.name,
+        //     history: responseData.history
+        //   });
+        
             const scapeScape = responseData
             dispatch({type: "FETCH_SCAPES", payload: scapeScape})
-        )
+        })
         .catch(error => this.setState({ error }));
         console.log(this.state.stock_name)
     }
